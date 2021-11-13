@@ -1,7 +1,23 @@
 #!/bin/bash
 
 echo "Installing required packages"
-sudo pacman -Syu --needed stow qtile alacritty neovim cowsay dunst picom rofi arandr autorandr ttf-jetbrains-mono
+sudo pacman -Syu --needed \
+	alacritty \
+	arandr \
+	autorandr \
+	blueman \
+	cowsay \
+	dunst \
+	neovim \
+	networkmanager \
+	nitrogen \
+	picom \
+	python-dbus-next \
+	python-pywlroots \
+	qtile \
+	rofi \
+	stow \
+	ttf-jetbrains-mono
 
 echo "Creating symlinks"
 stow alacritty
