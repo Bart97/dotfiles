@@ -104,9 +104,20 @@ keys = [
         [], "XF86AudioMute",
         lazy.spawn("amixer -q sset Master toggle")
     ),
+
+    Key(
+        [], "XF86MonBrightnessUp",
+        lazy.spawn("xbacklight +5")
+    ),
+    Key(
+        [], "XF86MonBrightnessDown",
+        lazy.spawn("xbacklight -5")
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
+
+#groupNames = ["WEB", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 for i in groups:
     keys.extend([
@@ -123,8 +134,19 @@ for i in groups:
         #     desc="move focused window to group {}".format(i.name)),
     ])
 
+nordColors = ["#2E3440", "#3B4252", "#434C5E", "#4C566A", # Polar night
+        "#D8DEE9", "#E5E9F0", "#ECEFF4", # Snow Storm
+        "#8FBCBB", "#88C0D0", "#81A1C1", "#5E81AC", # Frost
+        "#BF616A", "#D08770", "#EBCB8B", "#A3BE8C", "#B48EAD"] # Aurora
+
+def nord(num):
+    return [nordColors[num], nordColors[num]]
+
 layouts = [
-    layout.Columns(margin=12, border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
+    layout.Columns(margin=12, 
+        border_focus = nord(7),
+        border_normal = nord(10),
+        border_width=2),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -138,15 +160,6 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
-
-
-nordColors = ["#2E3440", "#3B4252", "#434C5E", "#4C566A", # Polar night
-        "#D8DEE9", "#E5E9F0", "#ECEFF4", # Snow Storm
-        "#8FBCBB", "#88C0D0", "#81A1C1", "#5E81AC", # Frost
-        "#BF616A", "#D08770", "#EBCB8B", "#A3BE8C", "#B48EAD"] # Aurora
-
-def nord(num):
-    return [nordColors[num], nordColors[num]]
 
 widget_defaults = dict(
     font='Jetbrains Mono',
@@ -189,7 +202,15 @@ def init_bar():
                 background = nord(14)
             ),
             widget.GroupBox(
-                background = nord(14)
+                background = nord(14),
+                highlight_method = 'line',
+                this_current_screen_border = nord(12),
+                this_screen_border = nord(12),
+                other_screen_border = nord(13),
+                other_current_screen_border = nord(13),
+                highlight_color = nord(12),
+                inactive = nord(0),
+                active = nord(6)
             ),
             rightArrow(
                 foreground = nord(14),
