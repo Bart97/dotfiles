@@ -17,7 +17,8 @@ sudo pacman -Syu --needed \
 	qtile \
 	rofi \
 	stow \
-	ttf-jetbrains-mono
+	ttf-jetbrains-mono\
+	xorg-xbacklight
 
 echo "Creating symlinks"
 stow alacritty
