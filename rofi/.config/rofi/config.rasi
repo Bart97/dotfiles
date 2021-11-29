@@ -1,1 +1,4 @@
-@theme "/home/bartosz/.config/rofi/themes/nord.rasi"
+configuration {
+    theme: "nord";
+    terminal: "/usr/bin/alacritty";
+}
