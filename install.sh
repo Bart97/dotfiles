@@ -12,6 +12,7 @@ sudo pacman -Syu --needed \
 	networkmanager \
 	network-manager-applet \
 	nitrogen \
+	pavucontrol \
 	picom \
 	python-dbus-next \
 	python-pywlroots \
