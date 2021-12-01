@@ -270,6 +270,7 @@ def init_bar():
 screens = [
     Screen(top=init_bar()),
     Screen(top=init_bar()),
+    Screen(top=init_bar())
 ]
 
 # Drag floating layouts.
