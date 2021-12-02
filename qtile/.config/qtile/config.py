@@ -262,7 +262,7 @@ def init_bar():
                 background = nord(14),
                 foreground = nord(0)
             ),
-            widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+            widget.Clock(format='%d.%m.%Y %a %H:%M'),
         ],
         24,
     )
