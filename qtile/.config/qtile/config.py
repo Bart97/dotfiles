@@ -70,6 +70,7 @@ keys = [
         desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([mod, "control"], "t", lazy.window.toggle_floating(), desc="Tile window"),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -83,7 +84,7 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
 
-    Key([mod], "b", lazy.spawn("firefox"), desc="Spawn browser"),
+    Key([mod], "b", lazy.spawn("chromium"), desc="Spawn browser"),
     Key([mod, "control"], "w", lazy.spawn("nitrogen --restore"), desc="Restore nitrogen wallpaper"),
 
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
@@ -232,7 +233,6 @@ def init_bar():
                 background = nord(0),
                 foreground = nord(10)
             ),
-            #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
             widget.Systray(
                 background = nord(10)
             ),
@@ -311,11 +311,14 @@ def start_once():
     autostartPath = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([autostartPath])
 
-#@hook.subscribe.screen_change
-def on_screen_change(_):
-    qtile.cmd_restart()
-#    qtile.cmd_reload_config()
+@hook.subscribe.screens_reconfigured
+async def on_screens_reconfigured():
     qtile.cmd_spawn("nitrogen --restore")
+#    qtile.cmd_reload_config()
+#@hook.subscribe.screen_change
+#def on_screen_change(_):
+#    qtile.cmd_reload_config()
+#    qtile.cmd_spawn("nitrogen --restore")
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
