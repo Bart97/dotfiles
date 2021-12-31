@@ -1,5 +1,6 @@
 configuration {
     terminal: "/usr/bin/alacritty";
+    font: "Jetbrains Mono 12";
 }
 @theme "nord"
 
