@@ -192,7 +192,7 @@ def leftArrow(background, foreground):
         background = background)
 
 
-def init_bar():
+def init_bar(screen):
     return bar.Bar(
         [
             widget.CurrentLayout(
@@ -235,7 +235,7 @@ def init_bar():
             ),
             widget.Systray(
                 background = nord(10)
-            ),
+            ) if screen == 0 else leftArrow(background = nord(10), foreground = nord(10)),
             widget.Bluetooth(
                 background = nord(10),
                 hci="/dev_14_87_6A_1A_DE_56",
@@ -268,9 +268,9 @@ def init_bar():
     )
 
 screens = [
-    Screen(top=init_bar()),
-    Screen(top=init_bar()),
-    Screen(top=init_bar())
+    Screen(top=init_bar(0)),
+    Screen(top=init_bar(1)),
+    Screen(top=init_bar(2))
 ]
 
 # Drag floating layouts.
