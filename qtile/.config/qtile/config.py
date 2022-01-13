@@ -26,6 +26,7 @@
 
 import os
 import subprocess
+import re
 
 from typing import List  # noqa: F401
 
@@ -40,6 +41,29 @@ from libqtile import qtile
 
 mod = "mod4"
 terminal = guess_terminal()
+
+volume_regex = re.compile("Left: .*? \[([\d%]+)\] \[([a-z]*?)\]")
+
+@lazy.function
+def volume_change(qtile, command):
+    amix = subprocess.run(["amixer", "sset", "Master", command], check=True, capture_output=True, text=True).stdout
+    leftLine = volume_regex.findall(amix)
+    volume = leftLine[0][0]
+    if "off" in leftLine[0][1]:
+        icon = "audio-volume-muted-symbolic.symbolic"
+    elif float(volume.strip("%")) < 25:
+        icon = "audio-volume-low-symbolic.symbolic"
+    elif float(volume.strip("%")) > 75:
+        icon = "audio-volume-high-symbolic.symbolic"
+    else:
+        icon = "audio-volume-medium-symbolic.symbolic"
+    qtile.cmd_spawn([
+        "dunstify",
+        "Volume " + volume,
+        "-i", icon,
+        "-h", "string:x-dunst-stack-tag:audio", 
+        "-h", "int:value:" + volume
+    ])
 
 keys = [
     # Switch between windows
@@ -93,18 +117,9 @@ keys = [
 #        desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn("rofi -show run")),
 
-    Key(
-        [], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -q sset Master 2%+")
-    ),
-    Key(
-        [], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -q sset Master 2%-")
-    ),
-    Key(
-        [], "XF86AudioMute",
-        lazy.spawn("amixer -q sset Master toggle")
-    ),
+    Key([], "XF86AudioRaiseVolume", volume_change("2%+")),
+    Key([], "XF86AudioLowerVolume", volume_change("2%-")),
+    Key([], "XF86AudioMute", volume_change("toggle")),
 
     Key(
         [], "XF86MonBrightnessUp",
