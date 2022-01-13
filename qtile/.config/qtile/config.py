@@ -24,6 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import math
 import os
 import subprocess
 import re
@@ -64,6 +65,19 @@ def volume_change(qtile, command):
         "-h", "string:x-dunst-stack-tag:audio", 
         "-h", "int:value:" + volume
     ])
+
+@lazy.function
+def brightness_change(qtile, command):
+    result = subprocess.run("xbacklight " + command + "; xbacklight -get", check=True, capture_output=True, text=True, shell=True).stdout
+    brightness = math.ceil(float(result))
+    qtile.cmd_spawn([
+        "dunstify",
+        "Brightness " + str(brightness),
+        "-i", "display-brightness-symbolic.symbolic",
+        "-h", "string:x-dunst-stack-tag:brightness",
+        "-h", "int:value:" + str(brightness)
+    ])
+
 
 keys = [
     # Switch between windows
@@ -121,14 +135,8 @@ keys = [
     Key([], "XF86AudioLowerVolume", volume_change("2%-")),
     Key([], "XF86AudioMute", volume_change("toggle")),
 
-    Key(
-        [], "XF86MonBrightnessUp",
-        lazy.spawn("xbacklight +5")
-    ),
-    Key(
-        [], "XF86MonBrightnessDown",
-        lazy.spawn("xbacklight -5")
-    ),
+    Key([], "XF86MonBrightnessUp", brightness_change("+5")),
+    Key([], "XF86MonBrightnessDown", brightness_change("-5")),
 ]
 
 groups = [Group(i) for i in "123456789"]
