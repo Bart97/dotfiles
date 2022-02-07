@@ -172,6 +172,7 @@ layouts = [
         border_normal = nord(10),
         border_width=2),
     layout.Max(),
+    layout.Floating(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
