@@ -235,7 +235,8 @@ def init_bar(screen):
                 other_current_screen_border = nord(13),
                 highlight_color = nord(12),
                 inactive = nord(0),
-                active = nord(6)
+                active = nord(6),
+                disable_drag = True
             ),
             rightArrow(
                 foreground = nord(14),
