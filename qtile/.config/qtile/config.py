@@ -134,6 +134,9 @@ keys = [
     Key([], "XF86AudioRaiseVolume", volume_change("2%+")),
     Key([], "XF86AudioLowerVolume", volume_change("2%-")),
     Key([], "XF86AudioMute", volume_change("toggle")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
 
     Key([], "XF86MonBrightnessUp", brightness_change("+5")),
     Key([], "XF86MonBrightnessDown", brightness_change("-5")),

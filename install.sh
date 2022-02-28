@@ -16,6 +16,7 @@ sudo pacman -Syu --needed \
 	nitrogen \
 	pavucontrol \
 	picom \
+    playerctl \
 	python-dbus-next \
 	python-pywlroots \
 	qtile \
