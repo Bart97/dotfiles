@@ -187,9 +187,9 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Jetbrains Mono',
-#    font = "Hack",
-    fontsize=12,
+#    font='Jetbrains Mono',
+    font = "Hack Nerd Font",
+    fontsize=14,
     padding=2,
     background = nord(0),
     foreground = nord(6)
@@ -253,6 +253,15 @@ def init_bar(screen):
                     'launch': ("#ff0000", "#ffffff"),
                 },
                 name_transform=lambda name: name.upper(),
+            ),
+            widget.Mpris2(
+                objname = "org.mpris.MediaPlayer2.spotify",
+                name = "spotify",
+                display_metadata = ['xesam:artist', 'xesam:title'],
+                scroll_interval = None,
+                fmt = "\uf9c6 {}",
+                font = "Hack Nerd Font",
+                fontsize = 14
             ),
             leftArrow(
                 background = nord(0),
