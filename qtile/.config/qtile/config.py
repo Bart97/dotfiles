@@ -353,6 +353,11 @@ async def on_screens_reconfigured():
     qtile.cmd_spawn("nitrogen --restore")
     qtile.cmd_spawn("pkill -9 picom; picom --experimental-backends", True)
 
+@hook.subscribe.restart
+async def on_restart():
+    qtile.cmd_spawn("nitrogen --restore")
+    qtile.cmd_spawn("pkill -9 picom; picom --experimental-backends", True)
+
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
 # mailing lists, GitHub issues, and other WM documentation that suggest setting
