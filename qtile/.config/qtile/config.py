@@ -131,6 +131,8 @@ keys = [
 #        desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn("rofi -show run")),
 
+    Key([mod], "p", lazy.spawn("bluetoothctl connect \"14:87:6A:1A:DE:56\""), desc="Pair headphones"),
+
     Key([], "XF86AudioRaiseVolume", volume_change("2%+")),
     Key([], "XF86AudioLowerVolume", volume_change("2%-")),
     Key([], "XF86AudioMute", volume_change("toggle")),
