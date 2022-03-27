@@ -351,11 +351,7 @@ def start_once():
 @hook.subscribe.screens_reconfigured
 async def on_screens_reconfigured():
     qtile.cmd_spawn("nitrogen --restore")
-#    qtile.cmd_reload_config()
-#@hook.subscribe.screen_change
-#def on_screen_change(_):
-#    qtile.cmd_reload_config()
-#    qtile.cmd_spawn("nitrogen --restore")
+    qtile.cmd_spawn("pkill -9 picom; picom --experimental-backends", True)
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
