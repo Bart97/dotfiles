@@ -47,7 +47,7 @@ volume_regex = re.compile("Left: .*? \[([\d%]+)\] \[([a-z]*?)\]")
 
 @lazy.function
 def volume_change(qtile, command):
-    amix = subprocess.run(["amixer", "sset", "Master", command], check=True, capture_output=True, text=True).stdout
+    amix = subprocess.run(["amixer", "-D", "pulse", "sset", "Master", command], check=True, capture_output=True, text=True).stdout
     leftLine = volume_regex.findall(amix)
     volume = leftLine[0][0]
     if "off" in leftLine[0][1]:
@@ -287,6 +287,7 @@ def init_bar(screen):
             widget.Volume(
                 emoji = False,
                 fmt = "Vol: {}",
+                device = "pulse",
                 background = nord(13),
                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('pavucontrol')}
             ),
