@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'inkarkat/vim-mark'
     Plug 'inkarkat/vim-ingo-library'
     Plug 'shaunsingh/nord.nvim'
+    Plug 'mtdl9/vim-log-highlighting'
 call plug#end()
 
 set expandtab
