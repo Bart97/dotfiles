@@ -9,6 +9,7 @@ sudo pacman -Syu --needed \
 	blueman \
 	cowsay \
 	dunst \
+    i3lock \
     neofetch \
 	neovim \
 	networkmanager \

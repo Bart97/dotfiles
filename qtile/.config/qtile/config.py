@@ -122,6 +122,8 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
 
+    Key([mod], "o", lazy.spawn("i3lock -c 3b4252"), desc="Lock screen"),
+
     Key([mod], "b", lazy.spawn("chromium"), desc="Spawn browser"),
     Key([mod, "control"], "w", lazy.spawn("nitrogen --restore"), desc="Restore nitrogen wallpaper"),
 
