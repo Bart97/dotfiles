@@ -1,0 +1,3 @@
+[submodule "qtile/.config/qtile/rofi-yubioath"]
+	path = qtile/.config/qtile/rofi-yubioath
+	url = https://github.com/Bart97/rofi-yubioath.git

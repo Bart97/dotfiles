@@ -144,6 +144,8 @@ keys = [
 
     Key([], "XF86MonBrightnessUp", brightness_change("+5")),
     Key([], "XF86MonBrightnessDown", brightness_change("-5")),
+
+    Key([mod], "y", lazy.spawn('python3 ' + os.path.expanduser('~/.config/qtile/rofi-yubioath/rofi-yubioath.py')), desc="Show Yubikey OATH codes")
 ]
 
 groups = [Group(i) for i in "123456789"]
