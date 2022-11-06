@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'shaunsingh/nord.nvim'
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'itchyny/lightline.vim'
+    Plug 'wilriker/gcode.vim'
 call plug#end()
 
 set expandtab
