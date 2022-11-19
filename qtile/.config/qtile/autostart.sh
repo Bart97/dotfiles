@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-picom --experimental-backends &
+picom &
 nm-applet &
 autorandr --change &
 blueman-applet &
