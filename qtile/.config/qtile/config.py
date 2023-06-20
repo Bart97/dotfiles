@@ -268,7 +268,7 @@ def init_bar(screen):
                 name = "spotify",
                 display_metadata = ['xesam:artist', 'xesam:title'],
                 scroll_interval = None,
-                fmt = "\uf9c6 {}",
+                fmt = "\uf1bc {}",
                 font = "Hack Nerd Font",
                 fontsize = 14
             ),
