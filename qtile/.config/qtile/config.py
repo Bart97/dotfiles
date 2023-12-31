@@ -43,14 +43,15 @@ from libqtile import qtile
 mod = "mod4"
 terminal = guess_terminal()
 
-volume_regex = re.compile("Left: .*? \[([\d%]+)\] \[([a-z]*?)\]")
+#volume_regex = re.compile("Left: .*? \[([\d%]+)\] \[([a-z]*?)\]")
+volume_regex = re.compile("(true|false) (\d+)")
 
 @lazy.function
 def volume_change(qtile, command):
-    amix = subprocess.run(["amixer", "-D", "pulse", "sset", "Master", command], check=True, capture_output=True, text=True).stdout
+    amix = subprocess.run(["pamixer", "--get-volume", "--get-mute", command], check=True, capture_output=True, text=True).stdout
     leftLine = volume_regex.findall(amix)
-    volume = leftLine[0][0]
-    if "off" in leftLine[0][1]:
+    volume = leftLine[0][1]
+    if "true" in leftLine[0][0]:
         icon = "audio-volume-muted-symbolic.symbolic"
     elif float(volume.strip("%")) < 25:
         icon = "audio-volume-low-symbolic.symbolic"
@@ -62,7 +63,7 @@ def volume_change(qtile, command):
         "dunstify",
         "Volume " + volume,
         "-i", icon,
-        "-h", "string:x-dunst-stack-tag:audio", 
+        "-h", "string:x-dunst-stack-tag:audio",
         "-h", "int:value:" + volume
     ])
 
@@ -109,6 +110,7 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([mod, "control"], "t", lazy.window.toggle_floating(), desc="Tile window"),
+    Key([mod, "control"], "m", lazy.window.toggle_maximize(), desc="Toggle maximize"),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -135,9 +137,9 @@ keys = [
 
     Key([mod], "p", lazy.spawn("bluetoothctl connect \"14:87:6A:1A:DE:56\""), desc="Pair headphones"),
 
-    Key([], "XF86AudioRaiseVolume", volume_change("2%+")),
-    Key([], "XF86AudioLowerVolume", volume_change("2%-")),
-    Key([], "XF86AudioMute", volume_change("toggle")),
+    Key([], "XF86AudioRaiseVolume", volume_change("-i2")),
+    Key([], "XF86AudioLowerVolume", volume_change("-d2")),
+    Key([], "XF86AudioMute", volume_change("-t")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
