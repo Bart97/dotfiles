@@ -6,6 +6,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mtdl9/vim-log-highlighting'
     Plug 'itchyny/lightline.vim'
     Plug 'wilriker/gcode.vim'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'sindrets/diffview.nvim'
+    Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 set expandtab
@@ -20,3 +23,5 @@ colorscheme nord
 
 let g:lightline = {
     \ 'colorscheme': 'nord' }
+
+lua require('config')
