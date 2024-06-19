@@ -27,7 +27,8 @@ sudo pacman -Syu --needed \
     thunar-archive-plugin
     thunar-media-tags-plugin
     thunar-volman
-	ttf-jetbrains-mono\
+	ttf-jetbrains-mono
+    ripgrep\
 
 echo "Creating symlinks"
 stow alacritty

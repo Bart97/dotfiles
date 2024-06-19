@@ -1,0 +1,14 @@
+{
+  "gcode.vim": { "branch": "master", "commit": "a3bbe029cac56684866246b821a0c87b23bb35bb" },
+  "lazy.nvim": { "branch": "main", "commit": "bc620783663ab09d16bff9fdecc07da65b2a1528" },
+  "lightline.vim": { "branch": "master", "commit": "58c97bc21c6f657d3babdd4eefce7593e30e75ce" },
+  "nord.nvim": { "branch": "master", "commit": "80c1e5321505aeb22b7a9f23eb82f1e193c12470" },
+  "nvim-treesitter": { "branch": "master", "commit": "66ae8748fd4e8550c8b17cf115c9739aea1e4067" },
+  "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
+  "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
+  "vim-fugitive": { "branch": "master", "commit": "64d6cafb9dcbacce18c26d7daf617ebb96b273f3" },
+  "vim-ingo-library": { "branch": "master", "commit": "48ffe514bac9ddd5c7ece029a47a94f9dd31b935" },
+  "vim-log-highlighting": { "branch": "master", "commit": "1037e26f3120e6a6a2c0c33b14a84336dee2a78f" },
+  "vim-mark": { "branch": "master", "commit": "0afec1d5bb2547a9357eecca54fbc5c6c6d178a7" }
+}
