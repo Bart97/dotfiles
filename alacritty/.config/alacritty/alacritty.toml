@@ -34,3 +34,6 @@ style = "Regular"
 
 [window]
 opacity = 0.9
+
+[terminal]
+osc52 = "CopyPaste"
