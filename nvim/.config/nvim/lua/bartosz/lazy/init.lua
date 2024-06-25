@@ -4,5 +4,6 @@ return {
         dependencies = 'inkarkat/vim-ingo-library'
     }, 
     'mtdl9/vim-log-highlighting',
-    'wilriker/gcode.vim'
+    'wilriker/gcode.vim',
+    'nvim-tree/nvim-web-devicons'
 }
