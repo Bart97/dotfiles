@@ -2,40 +2,65 @@
 
 echo "Installing required packages"
 sudo pacman -Syu --needed \
-    acpilight \
-	alacritty \
-	arandr \
-	autorandr \
-	blueman \
-	cowsay \
-	dunst \
-    i3lock \
-    neofetch \
-	neovim \
-	networkmanager \
-	network-manager-applet \
-	nitrogen \
-	pavucontrol \
-	picom \
+    blueman \
+    networkmanager \
+    network-manager-applet \
     playerctl \
-	python-dbus-next \
-	python-pywlroots \
-	qtile \
-	rofi \
-	stow \
-    thunar
-    thunar-archive-plugin
-    thunar-media-tags-plugin
-    thunar-volman
-	ttf-jetbrains-mono
-    ripgrep\
+    rofi \
+    pavucontrol \
+    screen \
+    pipewire \
+    wireplumber \
+    pipewire-pulse \
+    pipewire-audio \
+
+
+
+echo "Installing terminal tools"
+sudo pacman -Syu --needed \
+    stow \
+    ripgrep \
+    neovim \
+    rsync \
+    neofetch \
+
+
+
+echo "Installing desktop environment"
+sudo pacman -Syu --needed \
+    wayland \
+    wl-clipboard \
+    xorg-xwayland \
+    alacritty \
+    hyprland \
+    brightnessctl \
+    uwsm \
+    ttf-jetbrains-mono \
+    dunst \
+    waybar \
+    rofi-wayland \
+    noto-fonts-emoji
+    
+
+echo "Installing productivity tools"
+sudo pacman -Syu --needed \
+    telegram-desktop \
+    signal-desktop \
+    libreoffice \
+    discord \
+    vlc \
+    thunar \
+    thunar-archive-plugin \
+    thunar-shares-plugin \
+    thunar-media-tags-plugin \
+    thunar-volman \
+
 
 echo "Creating symlinks"
 stow alacritty
 stow dunst
 stow nvim
-stow picom
-stow qtile
+stow hyperland
 stow rofi
 
 echo "Installing vim-plug"
@@ -53,5 +78,5 @@ echo "Configuring acpilight permissions"
 sudo cp ./90-backlight.rules /etc/udev/rules.d/90-backlight.rules
 sudo usermod -a -G video $USER
 
-cowsay "Done"
+echo "Done"
 

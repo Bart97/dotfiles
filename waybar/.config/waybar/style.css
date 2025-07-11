@@ -1,15 +1,17 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: FontAwesome, JetBrainsMono, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /*background-color: rgba(43, 48, 59, 0.5);*/
+    background: transparent;
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+      border-radius: 40px;
 }
 
 window#waybar.hidden {
@@ -24,15 +26,6 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
@@ -53,23 +46,43 @@ button:hover {
     background-color: #a37800;
 }
 
+#workspaces {
+    border-radius: 40px;
+    padding: 5px 5px;
+    background: #2E3440; /* nord0 */
+}
 #workspaces button {
+    border-radius: 40px;
     padding: 0 5px;
+    background-color: #3b4252; /* nord1 */
+    color: #d8dee9; /* nord4 */
+    transition: none;
+}
+
+#workspaces button.empty {
     background-color: transparent;
-    color: #ffffff;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    box-shadow: none;
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.visible {
+    background-color: #5e81ac;
+}
+
+#workspaces button.visible.hosting-monitor {
+    background-color: #81a1c1;
+}
+
+
+#workspaces button.active {
+    background-color: #5e81ac;
+    box-shadow: inset 0 0 3px 0 #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #bf616a; /* nord11 */
 }
 
 #mode {
@@ -95,6 +108,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
+    border-radius: 40px;
     color: #ffffff;
 }
 
@@ -114,17 +128,17 @@ button:hover {
 }
 
 #clock {
-    background-color: #64727D;
+    background-color: #2E3440; /* nord0 */
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: #ebcb8b; /* nord13 */
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
+    background-color: #a3be8c; /* nord13 */
 }
 
 @keyframes blink {
@@ -136,7 +150,7 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: #bf616a; /* nord11 */
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -169,12 +183,12 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: #a3be8c; /* nord14 */
     color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #b48ead; /* nord15 */
 }
 
 #disk {
@@ -194,22 +208,22 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: #ebcb8b; /* nord13 */
     color: #000000;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
+    background-color: #8fbcbb; /* nord7 */
     color: #2a5c45;
 }
 
 #wireplumber {
-    background-color: #fff0f5;
+    background-color: #ebcb8b; /* nord13 */
     color: #000000;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    background-color: #8fbcbb; /* nord7 */
 }
 
 #custom-media {
@@ -235,7 +249,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #5e81ac; /* nord10 */
 }
 
 #tray > .passive {
@@ -244,7 +258,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #bf616a; /* nord11 */
 }
 
 #idle_inhibitor {

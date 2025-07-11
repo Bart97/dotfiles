@@ -73,7 +73,7 @@ return {
             end)
 
             require('mason-lspconfig').setup({
-                ensure_installed = {'clangd', 'cmake', 'lua_ls', 'pyright'},
+                ensure_installed = {'clangd', 'cmake', 'lua_ls', 'pyright', 'cssls'},
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
