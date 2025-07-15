@@ -39,7 +39,8 @@ sudo pacman -Syu --needed \
     dunst \
     waybar \
     rofi-wayland \
-    noto-fonts-emoji
+    noto-fonts-emoji \
+    slurp
     
 
 echo "Installing productivity tools"
