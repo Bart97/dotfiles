@@ -49,12 +49,11 @@ sudo pacman -Syu --needed \
     signal-desktop \
     libreoffice \
     discord \
-    vlc \
-    thunar \
-    thunar-archive-plugin \
-    thunar-shares-plugin \
-    thunar-media-tags-plugin \
-    thunar-volman \
+    vlc vlc-plugins-all \
+    thunar thunar-archive-plugin thunar-shares-plugin thunar-media-tags-plugin thunar-volman \
+    sane sane-airscan tesseract-data-pol skanpage \
+    gnome-keyring seahorse \
+    okular
 
 
 echo "Creating symlinks"
