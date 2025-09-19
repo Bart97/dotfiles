@@ -7,7 +7,7 @@ vim.opt.listchars["tab"] = '▸'
 vim.opt.listchars["trail"] = '·'
 vim.opt.number = true
 
-if vim.env.SSH_TTY ~= nil then
+if vim.env.SSH_TTY ~= nil or vim.env.container ~= nil then
     -- Workaroud because Alacritty doesn't play nice with neovim by default
     vim.g.clipboard = {
         name = 'OSC 52',
