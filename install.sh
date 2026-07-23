@@ -55,6 +55,7 @@ sudo pacman -Syu --needed \
     gnome-keyring seahorse \
     okular
 
+sudo pacman -Syu --needed remmina freerdp libvncserver
 
 echo "Creating symlinks"
 stow alacritty
