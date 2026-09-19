@@ -83,7 +83,7 @@ return {
         },
         config = function()
             require('mason-lspconfig').setup({
-                ensure_installed = { 'clangd', 'cmake', 'lua_ls', 'pyright', 'cssls', 'rust_analyzer', 'jsonls' }
+                ensure_installed = { 'clangd', 'lua_ls', 'pyright', 'cssls', 'rust_analyzer', 'jsonls' }
             })
         end
     }

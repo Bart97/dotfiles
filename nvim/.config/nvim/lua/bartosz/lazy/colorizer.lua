@@ -1,6 +1,6 @@
 return {
     {
-        'norcalli/nvim-colorizer.lua',
+        'catgoose/nvim-colorizer.lua',
         init = function()
             vim.opt.termguicolors = true
             require 'colorizer'.setup {
