@@ -31,7 +31,7 @@ hl.monitor({
 })
 
 hl.monitor({
-    output   = "HP Inc. HP E243 CNC7481CBP",
+    output   = "desc:HP Inc. HP E243 CNC7481CBP",
     mode     = "preferred",
     position = "auto-left",
     scale    = "auto",
@@ -80,6 +80,12 @@ local menu        = "rofi -show drun"
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+-- local has_nvidia = os.execute("lsmod | grep -q '^nvidia '")
+-- 
+-- if has_nvidia then
+--     hl.env("LIBVA_DRIVER_NAME", "nvidia")
+--     hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- end
 
 -----------------------
 ----- PERMISSIONS -----
@@ -246,6 +252,8 @@ hl.config({
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
+
+        numlock_by_default = true,
 
         follow_mouse = 1,
 
